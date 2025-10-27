@@ -14,7 +14,7 @@ geometry_kube_context() {
 }
 
 geometry_kube_version() {
-  [[ $(kubectl version --client --short) =~ 'Client Version: ([0-9a-zA-Z.]+)' ]]
+  [[ $(kubectl version --client) =~ 'Client Version: ([0-9a-zA-Z.]+)' ]]
   local kube_version=($match[1])
   ansi ${GEOMETRY_KUBE_VERSION_COLOR:=default} ${kube_version:=default}
 }
